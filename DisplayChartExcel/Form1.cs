@@ -132,7 +132,9 @@ namespace DisplayChartExcel
                 double y = (double)a.ItemArray.GetValue(1);
                 list.Add(x, y);
             }
+            // Make sure the Y axis is rescaled to accommodate actual data
             zedGraphControl1.AxisChange();
+            // Force a redraw
             zedGraphControl1.Invalidate();
         }
 
@@ -159,8 +161,6 @@ namespace DisplayChartExcel
             dataGridView1.AutoGenerateColumns = true;
             dataGridView1.DataSource = ds; // dataset
             dataGridView1.DataMember = tablename;
-
-            // GetValues(ds, tablename);
         }
     }
 }
